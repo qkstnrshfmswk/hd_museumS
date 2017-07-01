@@ -17,7 +17,7 @@
 // colors so you can add, rename and remove colors as needed.
 // The "primary" color is the only required color in the map.
 
-$primary: #32cd32;
+$primary: #1C49AD;
 $secondary: #387ef5;
 $danger: #f53d3d;
 $light: #f4f4f4;
@@ -56,3 +56,15 @@ $dark-grey:#424242;
 
 $ionicons-font-path: "../assets/fonts";
 @import "ionic.ionicons";
+
+@font-face {
+    font-family: 'notoB';
+    src: url("../assets/fonts/NotoSansUI-Bold.ttf") format('truetype');
+}
+@font-face {
+    font-family: 'notoR';
+    src: url("../assets/fonts/NotoSans-Regular.ttf") format('truetype');
+}
+
+$item-ios-detail-push-color : $primary;
+$item-md-detail-push-color : $primary;

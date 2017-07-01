@@ -8,20 +8,33 @@ import {IonicStorageModule} from '@ionic/storage';
 import {TranslateModule, TranslateStaticLoader, TranslateLoader} from 'ng2-translate/ng2-translate';
 import {Http, HttpModule} from '@angular/http';
 import {BrowserModule} from "@angular/platform-browser";
+import { CategoryPage } from '../pages/category/category';
+import { FacilityPage } from '../pages/facility/facility';
+import { FacilityPageModule } from '../pages/facility/facility.module';
+import { FacilityDetailPageModule } from '../pages/facility-detail/facility-detail.module';
+import { FacilityGokhaPageModule } from '../pages/facility-gokha/facility-gokha.module';
+import { FacilityLibraryPageModule } from '../pages/facility-library/facility-library.module';
 
-
+//entry point에 추가
 export function createTranslateLoader(http: Http) {
     return new TranslateStaticLoader(http, './assets/i18n', '.json');
 }
 
 @NgModule({
     declarations: [
-        MyApp
+        MyApp,
+        CategoryPage
     ],
     imports: [
-        IonicModule.forRoot(MyApp),
+        IonicModule.forRoot(MyApp, {
+            backButtonText: ''
+        },),
         IonicStorageModule.forRoot(),
         BrowserModule,
+        FacilityPageModule,
+        FacilityDetailPageModule,
+        FacilityGokhaPageModule,
+        FacilityLibraryPageModule,
         HttpModule,
         TranslateModule.forRoot({
             provide: TranslateLoader,
@@ -29,12 +42,13 @@ export function createTranslateLoader(http: Http) {
             deps: [Http]
         })
 
-
     ],
     exports: [BrowserModule, HttpModule, TranslateModule],
     bootstrap: [IonicApp],
     entryComponents: [
-        MyApp
+        MyApp,
+        CategoryPage,
+        FacilityPage
     ],
     providers: [
         {provide: ErrorHandler, useClass: IonicErrorHandler},

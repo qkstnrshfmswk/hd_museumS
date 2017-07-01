@@ -14,15 +14,20 @@
 
 <ion-content>
 
-    <img src="{{info_img}}" class="card-img">
-       <div class="card-title">About Museum</div>
+    <img src="{{library_img}}" class="card-img">
+       <div class="card-title">{{facilityType}}</div>
 
-<!--about-->
-<div class="content">
-    <p [innerHTML]="info_data" class="details">
-    	{{info_data}}
-    </p>
 
-   </div> 
+  <ion-grid class="lib-list">
+<ion-row>
+  <ion-col>
+       <p *ngFor="let list of library_data_1"> {{list}} </p>
+</ion-col>
+  <ion-col>
+       <p *ngFor="let list of library_data_2"> {{list}} </p>
+</ion-col>
+</ion-row>
+</ion-grid>
+
 </ion-content>
 

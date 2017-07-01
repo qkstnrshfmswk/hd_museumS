@@ -2,15 +2,15 @@ import {Component,ViewChild} from '@angular/core';
 import {NavController, NavParams,IonicPage} from 'ionic-angular';
 import {Nav, Platform} from 'ionic-angular';
 import {Slides} from 'ionic-angular';
-import {CallNumber} from '@ionic-native/call-number';
 import { EmailComposer } from '@ionic-native/email-composer';
+import { Http } from '@angular/http';
 
 
 @IonicPage()
 @Component({
   selector: 'page-about-us',
   templateUrl: 'about-us.html',
-  providers:[CallNumber,EmailComposer]
+  providers:[EmailComposer]
 })
 export class AboutUsPage {
 
@@ -18,13 +18,32 @@ export class AboutUsPage {
 	
     @ViewChild(Nav) nav: Nav;
     contactNo:any=7376421282;
-
-
+  
+  public info_description;
+  public info_data:any;
+  public info_img:string;
   constructor(public platform: Platform,
               public navCtrl: NavController,
               public navParams: NavParams,
-              public callNumber:CallNumber,
-              public emailComposer:EmailComposer) {}
+              public emailComposer:EmailComposer,
+              public http:Http)
+{
+    this.http.get('http://ec2-34-224-40-186.compute-1.amazonaws.com:3000/museum_info/')
+        .subscribe(
+        data =>
+        {
+          this.info_description = data.json();
+          console.log(this.info_description);
+          this.info_data = this.info_description[0].info;
+          this.info_img = this.info_description[0].info_img;
+          console.log(this.info_data);
+        },
+        error =>
+        {
+          console.log("error");
+        });
+
+}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AboutUsPage');
@@ -38,9 +57,11 @@ export class AboutUsPage {
   }
 
   callUs() {
-      this.callNumber.callNumber(this.contactNo, true)
-    .then(() => console.log('Launched dialer!'))
-    .catch(() => console.log('Error launching dialer'));
+
+    //   this.callNumber.callNumber(this.contactNo, true)
+    // .then(() => console.log('Launched dialer!'))
+    // .catch(() => console.log('Error launching dialer'));
+
   }
 
    gotogoogleMap() {

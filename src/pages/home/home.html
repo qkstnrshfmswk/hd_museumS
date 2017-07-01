@@ -1,37 +1,47 @@
 <ion-header>
     <ion-navbar hideBackButton="true">
-        <button ion-button menuToggle>
-            <ion-icon name="menu"></ion-icon>
-        </button>
-        <ion-title>Restaurant</ion-title>
-        <ion-buttons end>
-            <button ion-button icon-only color="royal" (click)="navcart()">
-                <ion-icon name="cart"></ion-icon>
-                <ion-badge class="carts" item-right color="danger">{{noOfItems}}</ion-badge>
-            </button>
-        </ion-buttons>
+        <ion-title class="title">IMM</ion-title>
+        <img align="right" src="assets/img/search.png" class="search" (click)="navSearch()">
     </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content style = "background-color:#FFF;">
     <ion-grid class="grid">
         <ion-row><!-- first row -->
-            <ion-slides initialSlide=0 speed="3000" loop="true" pager="true">
-                <ion-slide *ngFor="let feature of featured">
-                    <div class="overlay">
-                        <img src={{feature.thumb}} class="slider-img">
-                    </div><!--overlay-->
-                    <div class="card-title">{{'Featured Product' | translate}}</div>
+            <ion-slides initialSlide=0 speed="500" loop="true" pager="true">
+                <ion-slide *ngFor="let img_list of main_img">
+                        <img src="{{img_list.img_path}}" class="slider-img">
                 </ion-slide>
             </ion-slides>
-        </ion-row><!-- first row -->
+        </ion-row>
         <!-- second-row -->
-        <h2 text-center>{{'Categories' | translate}}</h2>
+        <ion-row >
+            <div style="width: 100%; vertical-align: middle;">
+                <p>{{'International Mountain Museum' | translate}}</p>
+            </div>
+        </ion-row>
+        <div>
         <ion-row class="categories">
-            <ion-col col-6 *ngFor="let categorie of categories" (click)="navigate(categorie.key)">
-                <img src={{categorie.thumb}}>
-                <p class="text-over-img">{{categorie.title | translate}}</p>
+
+            <ion-col (click)="navAbout()">
+                    <img src="assets\\img\\about-02.png"/>
+                    <figcaption> About Museum </figcaption>
+            </ion-col>
+            <ion-col (click)="navExhibition()">
+                    <img src="assets\\img\\Exhibition-02.png"/>
+                    <figcaption> Exhibition </figcaption>
             </ion-col>
         </ion-row>
+        <ion-row class="categories">
+            <ion-col (click)="navAbout()">
+                    <img src="assets\\img\\Map-02.png"/>
+                    <figcaption>Map</figcaption>
+            </ion-col>
+            <ion-col (click)="navFacility()">
+                    <img src="assets\\img\\Facilities-02.png"/>
+                    <figcaption> Facilities </figcaption>
+            </ion-col>
+        </ion-row>
+        </div>
     </ion-grid>
 </ion-content>
