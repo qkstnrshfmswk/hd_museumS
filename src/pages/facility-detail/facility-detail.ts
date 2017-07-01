@@ -16,6 +16,7 @@ import { Http } from '@angular/http';
 export class FacilityDetailPage {
   facilityType:any;
   facility_info:any;
+  facility_img:any;
   img:any;
   info_type:Array<any> = [];
   info_content:Array<any> = [];
@@ -28,7 +29,22 @@ export class FacilityDetailPage {
       data=>
       {
         this.facility_info = data.json();
-        this.img = this.facility_info[0].facility_img;
+        this.facility_img = this.facility_info[this.index++].img;
+        if(this.facilityType == "Souvenir Shop")
+        {
+          for(  ; this.index < this.facility_info.length ; this.index++)
+          {
+            this.info_type.push(this.facility_info[this.index].product);
+            this.info_content.push(this.facility_info[this.index].price);
+          }
+        }else
+        {
+          for(  ; this.index < this.facility_info.length ; this.index++)
+          {
+            this.info_type.push(this.facility_info[this.index].info_type);
+            this.info_content.push(this.facility_info[this.index].info_content);
+          }
+        }
         // this.gokha_img = this.gokha[this.index++].Restaruant_img;
         // console.log(this.gokha_img);
         // this.capability = this.gokha[this.index++].capability;
