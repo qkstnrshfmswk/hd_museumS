@@ -5,7 +5,8 @@ import { Http } from '@angular/http';
 import { AboutUsPage } from '../about-us/about-us';
 import { NewsPage } from '../news/news';
 import { FacilityPage } from '../facility/facility';
-
+import { SearchPage } from '../search/search';
+import { MapTabPage } from '../map-tab/map-tab';
 @IonicPage()
 @Component({
     selector: 'page-home',
@@ -13,10 +14,10 @@ import { FacilityPage } from '../facility/facility';
     providers: [Service]
 })
 export class HomePage {
-    categories: any[] = [];
-    featured: any[] = [];
-    cartItems: any[];
-    noOfItems: number;
+    // categories: any[] = [];
+    // featured: any[] = [];
+    // cartItems: any[];
+    // noOfItems: number;
 
     main_icon:any[] = [{"icon_img":"assets\\img\\about-02.png"}, 
                         {"icon_img":"assets\\img\\Exhibition-02.png"},
@@ -39,15 +40,15 @@ export class HomePage {
         });
 
 
-        this.cartItems = JSON.parse(localStorage.getItem('cartItem'));
-        if (this.cartItems != null) {
-            this.noOfItems = this.cartItems.length;
-        }
-        this.service.getData()
-            .subscribe((response) => {
-                this.categories = response.categories;
-                this.featured = response.featured;
-            })
+        // this.cartItems = JSON.parse(localStorage.getItem('cartItem'));
+        // if (this.cartItems != null) {
+        //     this.noOfItems = this.cartItems.length;
+        // }
+        // this.service.getData()
+        //     .subscribe((response) => {
+        //         this.categories = response.categories;
+        //         this.featured = response.featured;
+        //     })
     }
 
     navigate(MenuId) {
@@ -73,4 +74,11 @@ export class HomePage {
         this.navCtrl.push("FacilityPage");
     }
 
+    gotoSearch(){
+        this.navCtrl.push("SearchPage");
+    }
+    
+    navMap(){
+        this.navCtrl.push("MapTabPage");
+    }
 }

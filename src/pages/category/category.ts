@@ -2,7 +2,8 @@ import {Component} from '@angular/core';
 import {NavController, IonicPage, NavParams} from 'ionic-angular';
 import {Service} from '../../app/service';
 import { Http } from '@angular/http';
-
+import { SearchPage } from '../search/search';
+import { SectionPage } from '../section/section';
 @IonicPage()
 @Component({
     selector: 'page-category',
@@ -45,5 +46,19 @@ export class CategoryPage {
             {MenuId: MenuId}
         );
     }
+
+
+  gotoSearch(){
+    this.navCtrl.push("SearchPage");
+  }
+
+  gotoSection(section_num, section_name, section_id){
+      var sectionFull = section_num + " ) " + section_name;
+      console.log("section full "+ sectionFull);
+      this.navCtrl.push("SectionPage",
+       {section:sectionFull,
+        sectionId:section_id
+      });
+  }
 
 }

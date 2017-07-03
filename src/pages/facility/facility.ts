@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { FacilityDetailPage } from '../facility-detail/facility-detail';
+import { SearchPage } from '../search/search';
 /**
  * Generated class for the FacilityPage page.
  *
@@ -46,4 +47,10 @@ public facility:any;
         facilityType:Type});
     }
   }
+
+
+  gotoSearch(){
+    this.navCtrl.push("SearchPage");
+  }
+  
 }

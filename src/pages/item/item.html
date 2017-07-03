@@ -13,26 +13,22 @@
 
 
 <ion-content>
-
-    <img src="{{img}}" class="card-img">
-      <div class="card-title">
-         <p class="card-floor"> {{loc}} </p>
-         <p class = "card-name" *ngFor="let lines of name"> {{lines.line}} </p>
-      </div> 
-
+    <p class="section"> {{section}}  </p>
+    <img src="{{item_img}}" class="card-img">
+    <p class="name"> {{item_name}} </p>
+    
 <!--about-->
 <div class="content">
-    <p [innerHTML]="desc" class="details">
-    	{{desc}}
+    <p [innerHTML]="item_desc" class="details">
+    	{{item_desc}}
     </p>
 </div>
 
 <ion-list>
         <button color:primary ion-item 
-        (click)="gotoSection(section_list.section_num, section_list.section_name, section_list.section_id)" 
-        *ngFor="let section_list of section">
-            {{section_list.section_num}}) {{section_list.section_name}}
+        (click)="gotoItem(item_list.item_id)" 
+        *ngFor="let item_list of items">
+            {{item_list.item_name}}
         </button>
 </ion-list>
 </ion-content>
-

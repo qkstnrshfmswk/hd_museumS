@@ -10,16 +10,17 @@
           <img align="right" src="assets/img/search.png" class="search" (click)="gotoSearch()">
     </ion-navbar>
 </ion-header>
-<ion-content>
-    <ion-list>
-        <ion-item (click)="gotoCategory(categories.id)" *ngFor="let categories of exhibit_list">
+
+<ion-content padding>
+  <p class="section"> {{section}}  </p>
+      <ion-list>
+        <button ion-item *ngFor="let item_list of item_info" (click)="gotoItem(item_list.item_id)" >
             <ion-thumbnail item-left>
-                <img class="thumbnail-img" src="{{categories.exhibit_img}}">
+                <img class="thumbnail-img" src="{{item_list.item_img}}">
             </ion-thumbnail>
-            <div class ="list-content">
-            <p class ="h2">{{categories.exhibit_loc}} <br> </p>
-            <p class="exhibition-name" *ngFor="let name of categories.exhibit_name">{{name.line}} <br> </p>
+            <div class>
+              {{item_list.item_name}}
             </div>
-        </ion-item>
+        </button>
     </ion-list>
 </ion-content>

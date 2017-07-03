@@ -14,7 +14,14 @@ import { FacilityPageModule } from '../pages/facility/facility.module';
 import { FacilityDetailPageModule } from '../pages/facility-detail/facility-detail.module';
 import { FacilityGokhaPageModule } from '../pages/facility-gokha/facility-gokha.module';
 import { FacilityLibraryPageModule } from '../pages/facility-library/facility-library.module';
-
+import { SearchPageModule } from '../pages/search/search.module';
+import { QrScannerPageModule } from '../pages/qr-scanner/qr-scanner.module';
+import { SectionPageModule } from '../pages/section/section.module';
+import { ItemPageModule } from '../pages/item/item.module';
+import { MapPageModule } from '../pages/map/map.module';
+import { MapTabPageModule } from '../pages/map-tab/map-tab.module';
+import { MapPage2PageModule } from '../pages/map-page2/map-page2.module';
+import { MapPage1PageModule } from '../pages/map-page1/map-page1.module';
 //entry point에 추가
 export function createTranslateLoader(http: Http) {
     return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -35,7 +42,15 @@ export function createTranslateLoader(http: Http) {
         FacilityDetailPageModule,
         FacilityGokhaPageModule,
         FacilityLibraryPageModule,
+        SearchPageModule,
+        QrScannerPageModule,
         HttpModule,
+        MapPageModule,
+        MapTabPageModule,
+        ItemPageModule,
+        SectionPageModule,
+        MapPage1PageModule,
+        MapPage2PageModule,
         TranslateModule.forRoot({
             provide: TranslateLoader,
             useFactory: createTranslateLoader,

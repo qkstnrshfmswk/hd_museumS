@@ -4,6 +4,7 @@ import {Nav, Platform} from 'ionic-angular';
 import {Slides} from 'ionic-angular';
 import { EmailComposer } from '@ionic-native/email-composer';
 import { Http } from '@angular/http';
+import { SearchPage } from '../search/search';
 
 
 @IonicPage()
@@ -74,5 +75,9 @@ export class AboutUsPage {
       isHtml: true
     };
     this.emailComposer.open(email);
+  }
+
+  gotoSearch(){
+    this.navCtrl.push("SearchPage");
   }
 }
