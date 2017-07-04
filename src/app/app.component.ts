@@ -24,12 +24,9 @@ export class MyApp {
     ngOnInit(): any {
         let token = localStorage.getItem('user');
 
-        if (token == null) {
-            this.rootPage = "LoginPage";
-        }
-        else {
+        
             this.rootPage = "HomePage";
-        }
+  
     }
 
     constructor(public platform: Platform,

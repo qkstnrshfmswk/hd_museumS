@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { HomePage } from '../home/home';
 /**
  * Generated class for the MapPage2Page page.
  *
@@ -19,6 +19,16 @@ export class MapPage2Page {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MapPage2Page');
+  }
+
+      gotoSearch()
+    {
+        this.navCtrl.push("SearchPage");
+    }
+
+  navHome()
+  {
+    this.navCtrl.push("HomePage");
   }
 
 }

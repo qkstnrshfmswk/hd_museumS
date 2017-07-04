@@ -23,8 +23,8 @@
 </ion-searchbar>
 
 <ion-list>
-  <ion-item (click)="gotoItem(item)" *ngFor="let item of item_name">
-    {{ item }}
+  <ion-item (click)="gotoItem(item.item_id, item.section_id)" *ngFor="let item of items">
+    {{ item.item_name }}
   </ion-item>
 </ion-list>
 

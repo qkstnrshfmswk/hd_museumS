@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Http } from '@angular/http';
+import { Http, HttpModule } from '@angular/http';
 
 /**
  * Generated class for the ItemPage page.
@@ -44,7 +44,12 @@ export class ItemPage {
         {
 
         });
-    console.log("section id " + this.sectionId);
+   
+        this.getItemList(http);
+}
+
+getItemList(http){
+ console.log("section id " + this.sectionId);
     this.http.get('http://ec2-34-224-40-186.compute-1.amazonaws.com:3000/item/list/'+this.sectionId)
       .subscribe(
         item_data=>
@@ -68,9 +73,8 @@ export class ItemPage {
         {
 
         });
-
-
 }
+
    gotoSearch()
     {
         this.navCtrl.push("SearchPage");
