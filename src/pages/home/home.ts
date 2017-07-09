@@ -6,7 +6,7 @@ import { AboutUsPage } from '../about-us/about-us';
 import { NewsPage } from '../news/news';
 import { FacilityPage } from '../facility/facility';
 import { SearchPage } from '../search/search';
-import { MapTabPage } from '../map-tab/map-tab';
+import {MapPage} from '../map/map';
 @IonicPage()
 @Component({
     selector: 'page-home',
@@ -79,6 +79,6 @@ export class HomePage {
     }
     
     navMap(){
-        this.navCtrl.push("MapTabPage");
+        this.navCtrl.push("MapPage");
     }
 }

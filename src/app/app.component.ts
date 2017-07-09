@@ -6,6 +6,8 @@ import {Service} from '../app/service';
 import {OneSignal} from '@ionic-native/onesignal';
 import {SocialSharing} from '@ionic-native/social-sharing';
 import { FacilityPage } from '../pages/facility/facility';
+import { CategoryPage } from '../pages/category/category';
+
 
 @Component({
     templateUrl: 'app.html',

@@ -53,7 +53,7 @@ export class CategoryPage {
   }
 
   gotoSection(section_num, section_name, section_id){
-      var sectionFull = section_num + " ) " + section_name;
+      var sectionFull = section_name +" Section";
       console.log("section full "+ sectionFull);
       this.navCtrl.push("SectionPage",
        {section:sectionFull,

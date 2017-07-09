@@ -1,26 +1,20 @@
 <ion-header>
     <ion-navbar>
-   <!--   <ion-buttons>
-        <button ion-button icon-only (click)="navHome()">
-          <ion-icon name="arrow-back"></ion-icon>
-        </button>
-      </ion-buttons>
-      -->
-        <ion-title class="title">IMM</ion-title>
-          <img align="right" src="assets/img/search.png" class="search" (click)="gotoSearch()">
+    <div >
+        <img align="right" src="assets/img/search.png" class="search" (click)="gotoSearch()"/>        
+        <!--<ion-title class="title"> IMM </ion-title>-->
+        <p class="title">IMM</p>
+    </div>
     </ion-navbar>
 </ion-header>
-
 <ion-content padding>
   <p class="section"> {{section}}  </p>
-      <ion-list>
-        <button ion-item *ngFor="let item_list of item_info" (click)="gotoItem(item_list.item_id)" >
+      <ion-list no-lines>
+        <button *ngFor="let item_list of item_info" (click)="gotoItem(item_list.item_id)" >
             <ion-thumbnail item-left>
-                <img class="thumbnail-img" src="{{item_list.item_img}}">
+                <img class="thumbnail-img"  src="{{item_list.item_img}}"/>
             </ion-thumbnail>
-            <div class>
               {{item_list.item_name}}
-            </div>
         </button>
     </ion-list>
 </ion-content>

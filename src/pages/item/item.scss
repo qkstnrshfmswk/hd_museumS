@@ -12,11 +12,35 @@ page-item {
     width: 5em;
   }
 
-    .title{
+  .title{
+    margin:0 auto;
     font-family: "notoR";
+    margin:0 auto;
+    text-align:justify;
+    color:white;
+    font-size:3.3vh;
+    padding-left:30% !important;
+    
   }
-  .search{
-    width: 6%;
+
+ion-navbar.toolbar{
+  min-height: 48px !important;
+  padding-right: 10px;
+}
+
+
+.search{
+  width:7%;
+  margin-right:10px;
+}
+
+
+ .md .search{
+      width: 7%;
+ } 
+
+  .ios .search{
+      width:7%;
   }
 
     .card-title {

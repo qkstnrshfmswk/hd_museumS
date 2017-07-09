@@ -1,14 +1,40 @@
 page-home {
   
   .title{
+    margin:0 auto;
     font-family: "notoR";
     margin:0 auto;
-    text-align:justify;
+    text-align:center;
+    color:white;
+    font-size:3.3vh;
+    padding-left:10px;
   }
-  .search{
-    width: 6%;
+
+ion-navbar.toolbar{
+  min-height: 48px !important;
+  padding-right: 10px;
+}
+
+
+.search{
+  width:8%;
+}
+
+
+ .md .search{
+      width: 6%;
+    
+ } 
+
+  .ios .search{
+      width:6%;
+    
   }
+
+
+
   /*slider*/
+
   .grid {
     padding: 0px;
     p{

@@ -12,13 +12,38 @@ page-category {
     width: 5em;
   }
 
-    .title{
+  .title{
+    margin:0 auto;
     font-family: "notoR";
-  }
-  .search{
-    width: 6%;
+    margin:0 auto;
+    text-align:justify;
+    color:white;
+    font-size:3.3vh;
+    padding-left:30% !important;
+    
   }
 
+ion-navbar.toolbar{
+  min-height: 48px !important;
+  padding-right: 10px;
+}
+
+
+.search{
+  width:7%;
+  margin-right:10px;
+}
+
+
+ .md .search{
+      width: 7%;
+    
+ } 
+
+  .ios .search{
+      width:7%;
+    
+  }
     .card-title {
     font-family: "notoR";
     position: absolute;

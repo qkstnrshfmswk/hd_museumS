@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
+import { Http } from '@angular/http';
+import { CategoryPage } from '../category/category';
+import { FacilityDetailPage } from '../facility-detail/facility-detail';
+import { FacilityGokhaPage } from '../facility-gokha/facility-gokha';
+import { FacilityLibraryPage } from '../facility-library/facility-library';
 /**
  * Generated class for the MapPage page.
  *
@@ -13,8 +18,100 @@ import { HomePage } from '../home/home';
   templateUrl: 'map.html',
 })
 export class MapPage {
+  siteMap:string = "SITE MAP";
+  underground:string = "UNDERGROUND";
+  ground:string = "GROUND";
+  mapView:string = this.siteMap;
+  
+  map_list;
+  site_img;
+  basement_img;
+  ground_img;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  info_list;
+  site_contact_info:Array<any> = [];
+  site_fee_info:Array<any> = [];
+
+  basement_hall_info:Array<any> = [];
+  basement_others_info:Array<any> = [];
+  
+  ground_hall_info:Array<any> = [];
+  ground_facility_info:Array<any> = [];
+  
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public http:Http) {
+        this.http.get('http://ec2-34-224-40-186.compute-1.amazonaws.com:3000/map/')
+        .subscribe(
+        data =>
+        {
+          this.map_list = data.json();
+          for(let index = 0; index < this.map_list.length; index++)
+          {
+            var map_name = this.map_list[index].map_name;
+            console.log(data.json());
+            switch(map_name){
+              case this.siteMap: this.site_img = this.map_list[index].map_img;
+                                  break;
+              case this.underground: this.basement_img = this.map_list[index].map_img;
+                                  break;
+              case this.ground: this.ground_img = this.map_list[index].map_img;
+                                  break;                                          
+            }
+          }
+       },
+        error =>
+        {
+          console.log("error");
+        });
+
+        this.http.get('http://ec2-34-224-40-186.compute-1.amazonaws.com:3000/map/info')
+        .subscribe(
+        data =>
+        {
+          this.info_list = data.json();
+          for(let index = 0; index < this.info_list.length; index++)
+          {
+            var map_name = this.info_list[index].map_name;
+            var info_type = this.info_list[index].info_type;
+            switch(map_name)
+            {
+              case this.siteMap: 
+                    if(info_type == "contact")
+                    {
+                      this.site_contact_info.push(this.info_list[index]);
+                    }else if(info_type == "fee")
+                    {
+                      this.site_fee_info.push(this.info_list[index]);
+                    }
+                    break;
+              case this.underground: 
+                    if(info_type == "hall")
+                    {
+                      this.basement_hall_info.push(this.info_list[index]);
+                    }else if(info_type == "others")
+                    {
+                      this.basement_others_info.push(this.info_list[index]);
+                    }
+                    break;
+              case this.ground:
+                    if(info_type == "hall")
+                    {
+                      this.ground_hall_info.push(this.info_list[index]);
+                    }else if(info_type == "facility")
+                    {
+                      this.ground_facility_info.push(this.info_list[index]);
+                    }
+                    break;                                         
+            }
+          }
+        },
+        error =>
+        {
+          console.log("error");
+        });
+
   }
 
   ionViewDidLoad() {
@@ -29,5 +126,29 @@ export class MapPage {
   navHome()
   {
     this.navCtrl.push("HomePage");
+  }
+
+  go(link, navInfo)
+  {
+    if(link=="true")
+    {
+      switch(navInfo)
+      {
+        case "MP": this.navCtrl.push("CategoryPage", {ID:navInfo});
+                   break;
+        case "WM": this.navCtrl.push("CategoryPage", {ID:navInfo});
+                   break;
+        case "MA": this.navCtrl.push("CategoryPage", {ID:navInfo});
+                   break;
+        case "AE": this.navCtrl.push("CategoryPage", {ID:navInfo});
+                   break;
+        case "Library": this.navCtrl.push("FacilityLibraryPage", {facilityType:navInfo});
+                   break;
+        case "Souvenir Shop": this.navCtrl.push("FacilityDetailPage", {facilityType:navInfo});
+                  break;
+        case "Gorkha Village Restaurant": this.navCtrl.push("FacilityGokhaPage", {facilityType:navInfo});
+          break;                                                                      
+      }
+    }
   }
 }
