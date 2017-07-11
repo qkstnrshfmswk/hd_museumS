@@ -29,6 +29,8 @@ export class SectionPage {
         data =>
         {
             this.item_info = data.json();
+            console.log("item number " + this.item_info.length);
+            console.log("data " + this.item_info);
         },
         error=>
         {

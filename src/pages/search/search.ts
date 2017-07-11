@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { ItemPage } from '../item/item';
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
@@ -26,7 +26,11 @@ export class SearchPage {
   options: BarcodeScannerOptions;
   results: {};
 
-  constructor( private barcode:BarcodeScanner, public navCtrl: NavController, public navParams: NavParams, public http:Http) {
+  constructor( private barcode:BarcodeScanner, 
+               public navCtrl: NavController, 
+               public navParams: NavParams, 
+               public http:Http,
+               public viewCtrl:ViewController) {
   this.http.get('http://ec2-34-224-40-186.compute-1.amazonaws.com:3000/item/')
         .subscribe(
         data =>
@@ -84,7 +88,17 @@ async scanBarcode(){
 }
     const results = await this.barcode.scan(this.options);
     console.log(this.results);
-    this.navCtrl.push("ItemPage", {itemID: results.text});
+    
+    var qrScanInput = results.text.split('/');
+    var itemId = qrScanInput[0];
+    var sectionId = qrScanInput[1];
+
+    this.navCtrl.push("ItemPage", {itemId: itemId, sectionId: sectionId}).then(() => {
+        // first we find the index of the current view controller:
+        const index = this.viewCtrl.index;
+        // then we remove it from the navigation stack
+        this.navCtrl.remove(index);
+      });
 }
 
 
@@ -118,9 +132,26 @@ async scanBarcode(){
      //this.getItemId(name, this.http);
       console.log("parameter " + this.items[index].item_id);
       console.log("parameter section "+ this.items[index].section_id);
+        this.http.get('http://ec2-34-224-40-186.compute-1.amazonaws.com:3000/item/hit/' + this.items[index].item_id + "/"+this.items[index].item_hit_num)
+        .subscribe(
+        data =>
+        {
+          console.log("hit" + data.json());
+
+        },
+        error =>
+        {
+          console.log("error");
+        });
+
       this.navCtrl.push("ItemPage", {
         itemId : this.items[index].item_id,
         sectionId : this.items[index].section_id
+      }).then(() => {
+        // first we find the index of the current view controller:
+        const index = this.viewCtrl.index;
+        // then we remove it from the navigation stack
+        this.navCtrl.remove(index);
       });
   }
 

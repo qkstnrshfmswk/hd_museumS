@@ -53,6 +53,7 @@ export class CategoryPage {
   }
 
   gotoSection(section_name, section_id){
+    console.log("category page " + section_name + " " + section_id);
     this.navCtrl.push("SectionPage",
        {section:section_name,
         sectionId:section_id

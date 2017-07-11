@@ -19,6 +19,7 @@ import { FacilityLibraryPage } from '../facility-library/facility-library';
 })
 export class MapPage {
   siteMap:string = "SITE MAP";
+  basement:string = "BASEMENT";
   underground:string = "UNDERGROUND";
   ground:string = "GROUND";
   mapView:string = this.siteMap;

@@ -11,11 +11,13 @@
 
 <ion-content>
     <p class="section"> {{section}}  </p>
-    <img src="{{item_img}}" class="card-img">
-    <p class="name"> {{item_name}} </p>
-    
+    <div class="img"><img class="card-img" src="{{item_img}}" ></div>
+    <div class="item-name">{{item_name}} </div>
+    <button class="play-button" ion-button (click)="playVideo()" *ngIf="video_link != 'non'" >
+        <ion-icon name="play"></ion-icon>
+    </button>
 <!--about-->
-<div class="content">
+<div>
     <p [innerHTML]="item_desc" class="details">
     	{{item_desc}}
     </p>

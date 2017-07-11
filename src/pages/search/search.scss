@@ -58,8 +58,17 @@ ion-navbar.toolbar{
   min-height: 48px !important;
   padding-right: 10px;
 }
-
+ion-list-header{
+  font-size: 12pt !important;
+  margin-bottom: 0px !important;
+  font-family: "notoR" !important;
+  color: #1C49AD !important;
+}
+ion-label{
+  margin-bottom: 0px !important;
+}
 .items{
+  font-size: 12pt;
   font-family: "notoR";
 }
 

@@ -37,8 +37,8 @@ ion-navbar.toolbar{
       font-size: 15pt;
       padding-top:10px;
       padding-bottom:20px;
-      padding-left:25px;
-      border-bottom:solid 2.5px #1C49AD !important;
+      padding-left: 16px;
+      border-bottom:solid 2.0px #1C49AD !important;
       margin-top:10px;
       margin-bottom:0px;
 
@@ -59,10 +59,10 @@ ion-thumbnail{
     margin-right: 3px !important;
     max-width: 100% !important;    
     max-height: 100% !important;
-    image-orientation: from-image !important;      
+    image-orientation: initial !important;      
     
     img {
-        image-orientation: from-image !important;      
+        image-orientation : initial !important;      
         max-width: 100% !important;    
         max-height: 100% !important;
     }
@@ -72,20 +72,21 @@ ion-thumbnail{
 .item-inner{
   height: 75px !important;
 }
+
   button.item.item-block{
-      border-bottom:solid 1.2px #1C49AD !important;
-      padding-left:5px;
-      height: 75px !important;
+    border-bottom:solid 1.2px #1C49AD !important;
+    padding-left:5px;
+    height: 75px !important;
   }
 
-.input-wrapper{
+  .input-wrapper{
     font-family:"notoR";
     padding-top: 0px;
     padding-bottom:0px;
     padding-left:13pt;
     font-size: 15pt;
     color: #1C49AD;
-    border-left: solid 1.5px #1C49AD;
+    border-left: solid 1.2px #1C49AD;
 }
 
 

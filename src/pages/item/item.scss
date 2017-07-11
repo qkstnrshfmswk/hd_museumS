@@ -43,7 +43,7 @@ ion-navbar.toolbar{
       width:7%;
   }
 
-    .card-title {
+  .card-title {
     font-family: "notoR";
     position: absolute;
     top: 19.4%;
@@ -68,13 +68,17 @@ ion-navbar.toolbar{
     line-height: 1.1;
   }
 
+  .img{
+    border-bottom:solid 1.2px #1C49AD !important;
+  }
+
   .card-img {
     height: 227px;
-    width: 100%;
-    position: relative;
-    z-index: -111;
+    //position: relative;
     padding:0px;
-    margin:0px;
+    margin:0 auto !important;
+    width: auto;
+    display: block !important;
   }
 
   .name{
@@ -85,16 +89,16 @@ ion-navbar.toolbar{
   }
 
   .section{
-      font-family: "notoR";
-      color: #1C49AD;
-      font-weight:bold;
-      font-size: 15pt;
-      padding-top:10px;
-      padding-bottom:20px;
-      padding-left:20px;
-      border-bottom:solid 2.5px #1C49AD !important;
-      margin-top:10px;
-      margin-bottom:0px;
+    font-family: "notoR";
+    color: #1C49AD;
+    font-weight:bold;
+    font-size: 15pt;
+    padding-top:10px;
+    padding-bottom:20px;
+    padding-left:20px;
+    border-bottom:solid 1.2px #1C49AD !important;
+    margin-top:10px;
+    margin-bottom:0px;
 
   }
 
@@ -123,9 +127,10 @@ ion-thumbnail{
 
 }
 
-.item-inner{
-  height: 75px !important;
-}
+  .item-inner{
+    height: 75px !important;
+  }
+
   button.item.item-block{
       border-bottom:solid 1.2px #1C49AD !important;
       padding-left:5px;
@@ -139,7 +144,7 @@ ion-thumbnail{
     padding-left:13pt;
     font-size: 15pt;
     color: #1C49AD;
-    border-left: solid 1.5px #1C49AD;
+    border-left: solid 1.2px #1C49AD;
 }
   .scroll-content{
       padding-left:0px !important;
@@ -152,8 +157,28 @@ ion-thumbnail{
     padding-right: 20px;
     padding-bottom: 15px;
     margin-bottom: 0px;
+    margin-top: 0px;
     font-family : "notoR";
     border-bottom: solid 1.5px #1C49AD;
-    
+    text-align : justify;
+  }
+
+  .play-button{
+    background-color: #1C49AD;
+    display:inline-block;
+    margin-top: 4px;
+    margin-bottom: 15px;
+    height: 34px;
+    // width : 15px !important;
+  }
+  .item-name{
+    font-family: "notoR";
+    padding-top: 10px;
+    padding-left : 20px;
+    padding-right: 12px;    
+    font-size : 16pt;
+    color: #1C49AD;
+    margin : 0 auto !important;
+    display: inline-block;
   }
 }

@@ -20,6 +20,7 @@ import { ItemPageModule } from '../pages/item/item.module';
 import { MapPageModule } from '../pages/map/map.module';
 import { CategoryPageModule } from '../pages/category/category.module';
 import {BarcodeScanner} from '@ionic-native/barcode-scanner'
+import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 //entry point에 추가
 export function createTranslateLoader(http: Http) {
     return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -65,7 +66,8 @@ export function createTranslateLoader(http: Http) {
         Service,
         StatusBar,
         SplashScreen,
-        BarcodeScanner
+        BarcodeScanner,
+        YoutubeVideoPlayer
     ]
 })
 export class AppModule {
