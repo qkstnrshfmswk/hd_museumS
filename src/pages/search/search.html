@@ -1,13 +1,10 @@
 <ion-header>
     <ion-navbar>
-   <!--   <ion-buttons>
-        <button ion-button icon-only (click)="navHome()">
-          <ion-icon name="arrow-back"></ion-icon>
-        </button>
-      </ion-buttons>
-      -->
-        <ion-title class="title">IMM</ion-title>
-          
+    <div >
+        <img align="right" src="assets/img/search.png" class="search" />        
+        <!--<ion-title class="title"> IMM </ion-title>-->
+        <p class="title">IMM</p>
+    </div>
     </ion-navbar>
 </ion-header>
 
@@ -23,9 +20,14 @@
 </ion-searchbar>
 
 <ion-list>
-  <ion-item (click)="gotoItem(item.item_id, item.section_id)" *ngFor="let item of items">
-    {{ item.item_name }}
+  <ng-container *ngFor="let item of item_name; let count=index">
+  <ion-item class="items" (click)="gotoItem(item)"
+  *ngIf="count<5">
+    {{item}}
   </ion-item>
+  </ng-container>
 </ion-list>
-
+<div class="button-position">
+<button class="scan-button" ion-button outline color="primary" (click)="scanBarcode()"> Scan QR code </button>
+</div>
 </ion-content>

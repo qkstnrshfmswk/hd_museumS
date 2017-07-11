@@ -19,6 +19,7 @@ export class SectionPage {
   item_info:any;
   sectionFull:string;
   section_lit:Array<any> = [];
+  myimage:any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http:Http) {
     this.section = navParams.get("section");
     this.sectionId = navParams.get("sectionId");
@@ -49,8 +50,23 @@ export class SectionPage {
       });
   }
 
-     gotoSearch()
-    {
-        this.navCtrl.push("SearchPage");
-    }
+  gotoSearch()
+  {
+      this.navCtrl.push("SearchPage");
+  }
+
+// $('#myimage').on('load',function(){
+//    var img = document.getElementById('myimage'); 
+//    var width = img.clientWidth;
+//    var height = img.clientHeight;
+//    if (width>height){
+//      alert('Width is greater');
+//    }
+//    else{
+//       alert('Height is greater');
+//       //And do rotation if this is the right place
+//    }
+   
+// })
+
 }

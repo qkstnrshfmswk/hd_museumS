@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { ItemPage } from '../item/item';
+import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 /**
  * Generated class for the SearchPage page.
  *
@@ -15,12 +16,17 @@ import { ItemPage } from '../item/item';
 })
 export class SearchPage {
   searchQuery: string = '';
-  items:Array<any> = [];
-  item_name:Array<any> = [];
+  items:Array<any> =[];
+  item_name:Array<any>=[];
   item_info;
   item_id;
   section_id;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http:Http) {
+  item_length:number = 0;
+  item_name_temp:Array<any> = [];
+  options: BarcodeScannerOptions;
+  results: {};
+
+  constructor( private barcode:BarcodeScanner, public navCtrl: NavController, public navParams: NavParams, public http:Http) {
   this.http.get('http://ec2-34-224-40-186.compute-1.amazonaws.com:3000/item/')
         .subscribe(
         data =>
@@ -34,23 +40,21 @@ export class SearchPage {
         {
           console.log("error");
         });
+    console.log("length value1 : " + this.item_length);
+    this.initializeItems();
+    console.log("length value2 : " + this.item_length);
+            
 }
 
-  initializeItems(http:Http){
-   this.http.get('http://ec2-34-224-40-186.compute-1.amazonaws.com:3000/item/')
-        .subscribe(
-        data =>
-        {
-          this.items = data.json();
-          console.log(this.items);
-
-        },
-        error =>
-        {
-          console.log("error");
-        });
-
-        
+  initializeItems(){
+   this.item_name.length=0;    
+   this.item_name_temp.length=0;
+    for(let index = 0; index < this.items.length; index++)
+    {
+      this.item_name.push(this.items[index].item_name);
+      this.item_name_temp.push(this.items[index].item_name);
+    }
+   this.item_length = this.items.length;
   }
 
   ionViewDidLoad() {
@@ -60,9 +64,10 @@ export class SearchPage {
    getItems(ev: any) {
     
     // Reset items back to all of the items
-    this.initializeItems(this.http);
+    this.initializeItems();
     // set val to the value of the searchbar
     let val = ev.target.value;
+    console.log("length value4 : " + this.item_length);
 
     // if the value is an empty string don't filter the items
     if (val && val.trim() != '') {
@@ -70,7 +75,18 @@ export class SearchPage {
         return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
       })
     }
-  }
+   
+}
+
+async scanBarcode(){
+   this.options={
+   prompt: 'Scan a barcode to see the result!'
+}
+    const results = await this.barcode.scan(this.options);
+    console.log(this.results);
+    this.navCtrl.push("ItemPage", {itemID: results.text});
+}
+
 
 //   getItemId(name, http:Http)
 //   {
@@ -91,15 +107,20 @@ export class SearchPage {
 
 
 
-  gotoItem(item_id, section_id)
+  gotoItem(item_name)
   {
-
+    var index:number;
+      for( index = 0; index < this.item_name_temp.length;index++)
+      {
+        if(this.item_name_temp[index] == item_name)
+          break;
+      }
      //this.getItemId(name, this.http);
-      console.log("parameter " + item_id);
-      console.log("parameter section "+ section_id);
+      console.log("parameter " + this.items[index].item_id);
+      console.log("parameter section "+ this.items[index].section_id);
       this.navCtrl.push("ItemPage", {
-        itemId : item_id,
-        sectionId : section_id
+        itemId : this.items[index].item_id,
+        sectionId : this.items[index].section_id
       });
   }
 

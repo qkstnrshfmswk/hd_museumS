@@ -44,20 +44,38 @@ ion-navbar.toolbar{
 
   }
 
+.img-container{
+  width: 85px;
+  height: 65px;
+}
+
 ion-thumbnail{
     display: block;
-    image-orientation: from-image ;
-    
-    max-height:70px !important;
+    // height: auto !important;
+    // min-width: 85px !important;
+    // max-height:55px !important;
     margin-top: 3px !important;
     margin-bottom: 3px !important;
     margin-right: 3px !important;
+    max-width: 100% !important;    
+    max-height: 100% !important;
+    image-orientation: from-image !important;      
+    
+    img {
+        image-orientation: from-image !important;      
+        max-width: 100% !important;    
+        max-height: 100% !important;
+    }
+
 }
 
-
+.item-inner{
+  height: 75px !important;
+}
   button.item.item-block{
-       border-bottom:solid 1.2px #1C49AD !important;
-       padding-left:5px;
+      border-bottom:solid 1.2px #1C49AD !important;
+      padding-left:5px;
+      height: 75px !important;
   }
 
 .input-wrapper{

@@ -10,9 +10,9 @@
 <ion-content padding>
   <p class="section"> {{section}}  </p>
       <ion-list no-lines>
-        <button *ngFor="let item_list of item_info" (click)="gotoItem(item_list.item_id)" >
+        <button ion-item *ngFor="let item_list of item_info" (click)="gotoItem(item_list.item_id)" >
             <ion-thumbnail item-left>
-                <img class="thumbnail-img"  src="{{item_list.item_img}}"/>
+                <div class="img-container"> <img src="{{item_list.item_img}}"/> </div>
             </ion-thumbnail>
               {{item_list.item_name}}
         </button>

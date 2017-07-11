@@ -19,7 +19,7 @@ import { SectionPageModule } from '../pages/section/section.module';
 import { ItemPageModule } from '../pages/item/item.module';
 import { MapPageModule } from '../pages/map/map.module';
 import { CategoryPageModule } from '../pages/category/category.module';
-
+import {BarcodeScanner} from '@ionic-native/barcode-scanner'
 //entry point에 추가
 export function createTranslateLoader(http: Http) {
     return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -64,7 +64,8 @@ export function createTranslateLoader(http: Http) {
         {provide: ErrorHandler, useClass: IonicErrorHandler},
         Service,
         StatusBar,
-        SplashScreen
+        SplashScreen,
+        BarcodeScanner
     ]
 })
 export class AppModule {

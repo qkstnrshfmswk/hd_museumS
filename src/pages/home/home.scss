@@ -7,7 +7,7 @@ page-home {
     text-align:center;
     color:white;
     font-size:3.3vh;
-    padding-left:10px;
+    padding-left:20px;
   }
 
 ion-navbar.toolbar{
@@ -17,22 +17,21 @@ ion-navbar.toolbar{
 
 
 .search{
-  width:8%;
+  width:6.5%;
+  margin-right:10px;
 }
 
 
- .md .search{
-      width: 6%;
-    
- } 
+.md .search{
+  width: 6.5%;
+  margin-right:10px;  
+} 
 
-  .ios .search{
-      width:6%;
-    
+.ios .search{
+  width:6.5%;
+  margin-right:10px;
   }
-
-
-
+  
   /*slider*/
 
   .grid {

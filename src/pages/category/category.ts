@@ -52,11 +52,9 @@ export class CategoryPage {
     this.navCtrl.push("SearchPage");
   }
 
-  gotoSection(section_num, section_name, section_id){
-      var sectionFull = section_name +" Section";
-      console.log("section full "+ sectionFull);
-      this.navCtrl.push("SectionPage",
-       {section:sectionFull,
+  gotoSection(section_name, section_id){
+    this.navCtrl.push("SectionPage",
+       {section:section_name,
         sectionId:section_id
       });
   }

@@ -21,11 +21,13 @@
     </p>
 </div>
 
-<ion-list  no-lines>
-        <button color:primary ion-item 
-        (click)="gotoItem(item_list.item_id)" 
-        *ngFor="let item_list of items">
-            {{item_list.item_name}}
+      <ion-list no-lines>
+        <button ion-item *ngFor="let item_list of item_bottom_list" (click)="gotoItem(item_list.item_id)" >
+            <ion-thumbnail item-left>
+                <div class="img-container"> <img src="{{item_list.item_img}}"/> </div>
+            </ion-thumbnail>
+              {{item_list.item_name}}
         </button>
-</ion-list>
+    </ion-list>
+
 </ion-content>

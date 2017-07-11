@@ -21,10 +21,9 @@ export class ItemPage {
   item_img :any;
   item_desc:any;
   item_name:any;
-  items:any;
-  item_bottom_list:any;
+  items:Array<any> = [];
+  item_bottom_list:Array<any> = [];
   constructor(public navCtrl: NavController, public navParams: NavParams, public http:Http) {
-    this.section = navParams.get("section");
     this.itemId = navParams.get("itemId");
     this.sectionId = navParams.get("sectionId");
     console.log("item id " + this.itemId);
@@ -38,56 +37,57 @@ export class ItemPage {
             this.item_desc = this.item_info[0].item_desc;
             this.item_name = this.item_info[0].item_name;
             this.sectionId = this.item_info[0].section_id;
+            this.section = this.item_info[0].item_section;
             console.log("item section id" + this.sectionId);
         },
         error=>
         {
-
+          console.log("err");            
         });
    
-        this.getItemList(http);
-}
-
-getItemList(http){
- console.log("section id " + this.sectionId);
-    this.http.get('http://ec2-34-224-40-186.compute-1.amazonaws.com:3000/item/list/'+this.sectionId)
+    this.http.get('http://ec2-34-224-40-186.compute-1.amazonaws.com:3000/item/list/' + this.sectionId)
       .subscribe(
-        item_data=>
+        data =>
         {
-          this.item_bottom_list = item_data.json();
-          console.log("hih" + this.item_bottom_list);
-
-            for(let index; index< this.item_bottom_list.length ; index++)
+            this.items = data.json();
+            console.log(this.items);
+            for(let index = 0; index < this.items.length; index++)
             {
-              if(this.item_bottom_list[index].item_id == this.itemId)
+              console.log("item id index " + index + " " + this.items[index].item_id);
+              if(this.items[index].item_id == this.itemId)
               {
-
-              }else{
-              this.items.push(this.item_bottom_list[index])
-
+                continue;
+              }else
+              {
+                this.item_bottom_list.push(this.items[index]);
               }
             }
-            console.log(this.items);
         },
         error=>
         {
-
+          console.log("err");
         });
+
+        console.log("bottom list " + this.item_bottom_list);
+        
 }
 
-   gotoSearch()
-    {
-        this.navCtrl.push("SearchPage");
-    }
-  ionViewDidLoad() {
+  gotoSearch()
+  {
+    this.navCtrl.push("SearchPage");
+  }
+
+  ionViewDidLoad()
+  {
     console.log('ionViewDidLoad ItemPage');
   }
-  gotoItem(itemId){
-      console.log("section itme id " + itemId);
-      this.navCtrl.push("ItemPage", {
+
+  gotoItem(itemId)
+  {
+    this.navCtrl.push("ItemPage", {
         section: this.section,
         itemId: itemId,
         sectionId: this.sectionId
-      });
+    });
   }
 }

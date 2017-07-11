@@ -90,7 +90,6 @@ ion-navbar.toolbar{
     margin-bottom:0px;
     border-bottom:solid 2px #1C49AD !important;
   }
-  
 
 
   button.item.item-block{
@@ -107,9 +106,10 @@ ion-navbar.toolbar{
     padding-top: 9px;
     padding-bottom:9px;
     padding-left:14px;
-    font-size: 12.5pt;
+    font-size: 4.5vw;
     color: #1C49AD;
-    font-weight: bold;
+    font-family: "notoB";
+    
   }
 
 }
