@@ -17,7 +17,7 @@ import { SearchPage } from '../search/search';
 export class FacilityPage {
 public facility:any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http:Http) {
-        this.http.get('http://ec2-34-224-40-186.compute-1.amazonaws.com:3000/facility/')
+        this.http.get('http://ec2-54-169-228-245.ap-southeast-1.compute.amazonaws.com:3000/facility/')
         .subscribe(
         data =>
         {
@@ -34,17 +34,17 @@ public facility:any;
   ionViewDidLoad() {
     console.log('ionViewDidLoad FacilityPage');
   }
-  gotoDetail(Type){
-    if(Type=="Library"){
+  gotoDetail(name){
+    if(name=="Library"){
       this.navCtrl.push("FacilityLibraryPage", {
-        facilityType:Type});
-    }else if(Type == "Gokha Village Restaurant")
+        facilityName:name});
+    }else if(name == "Gorkha Village Restaurant")
     {
       this.navCtrl.push("FacilityGokhaPage", {
-        facilityType:Type });
+        facilityName:name });
     }else{
       this.navCtrl.push("FacilityDetailPage", {
-        facilityType:Type});
+        facilityName:name});
     }
   }
 

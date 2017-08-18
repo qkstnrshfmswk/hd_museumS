@@ -43,7 +43,7 @@ export class MapPage {
     public navCtrl: NavController, 
     public navParams: NavParams, 
     public http:Http) {
-        this.http.get('http://ec2-34-224-40-186.compute-1.amazonaws.com:3000/map/')
+        this.http.get('http://ec2-54-169-228-245.ap-southeast-1.compute.amazonaws.com:3000/maps/')
         .subscribe(
         data =>
         {
@@ -67,7 +67,7 @@ export class MapPage {
           console.log("error");
         });
 
-        this.http.get('http://ec2-34-224-40-186.compute-1.amazonaws.com:3000/map/info')
+        this.http.get('http://ec2-54-169-228-245.ap-southeast-1.compute.amazonaws.com:3000/maps/info')
         .subscribe(
         data =>
         {
@@ -129,27 +129,4 @@ export class MapPage {
     this.navCtrl.push("HomePage");
   }
 
-  go(link, navInfo)
-  {
-    if(link=="true")
-    {
-      switch(navInfo)
-      {
-        case "MP": this.navCtrl.push("CategoryPage", {ID:navInfo});
-                   break;
-        case "WM": this.navCtrl.push("CategoryPage", {ID:navInfo});
-                   break;
-        case "MA": this.navCtrl.push("CategoryPage", {ID:navInfo});
-                   break;
-        case "AE": this.navCtrl.push("CategoryPage", {ID:navInfo});
-                   break;
-        case "Library": this.navCtrl.push("FacilityLibraryPage", {facilityType:navInfo});
-                   break;
-        case "Souvenir Shop": this.navCtrl.push("FacilityDetailPage", {facilityType:navInfo});
-                  break;
-        case "Gorkha Village Restaurant": this.navCtrl.push("FacilityGokhaPage", {facilityType:navInfo});
-          break;                                                                      
-      }
-    }
-  }
 }

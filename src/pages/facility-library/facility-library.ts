@@ -14,16 +14,16 @@ import { Http, HttpModule } from '@angular/http';
   templateUrl: 'facility-library.html',
 })
 export class FacilityLibraryPage {
-  facilityType:any;
+  facilityName:any;
   library:any;
   library_data_1:Array<any>=[];
   library_data_2:Array<any>=[];
   library_img:any;
   index:number;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http:Http) {
-    this.facilityType = navParams.get("facilityType");
-    console.log(this.facilityType);  
-    this.http.get('http://ec2-34-224-40-186.compute-1.amazonaws.com:3000/facility/'+this.facilityType)
+    this.facilityName = navParams.get("facilityName");
+    console.log(this.facilityName);  
+    this.http.get('http://ec2-54-169-228-245.ap-southeast-1.compute.amazonaws.com:3000/facility/'+this.facilityName)
         .subscribe(
         data =>
         {

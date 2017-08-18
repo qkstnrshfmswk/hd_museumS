@@ -21,15 +21,15 @@ export class MyApp {
     offerCounter = 0;
     @ViewChild(Nav) nav: Nav;
 
-    rootPage: any;
+    rootPage: any ="HomePage";
 
-    ngOnInit(): any {
-        let token = localStorage.getItem('user');
+    // ngOnInit(): any {
+    //     let token = localStorage.getItem('user');
 
         
-            this.rootPage = "HomePage";
+    //         this.rootPage = "HomePage";
   
-    }
+    // }
 
     constructor(public platform: Platform,
                 public service: Service,

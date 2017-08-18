@@ -8,7 +8,6 @@ import {IonicStorageModule} from '@ionic/storage';
 import {TranslateModule, TranslateStaticLoader, TranslateLoader} from 'ng2-translate/ng2-translate';
 import {Http, HttpModule} from '@angular/http';
 import {BrowserModule} from "@angular/platform-browser";
-import { FacilityPage } from '../pages/facility/facility';
 import { FacilityPageModule } from '../pages/facility/facility.module';
 import { FacilityDetailPageModule } from '../pages/facility-detail/facility-detail.module';
 import { FacilityGokhaPageModule } from '../pages/facility-gokha/facility-gokha.module';
@@ -59,7 +58,7 @@ export function createTranslateLoader(http: Http) {
     bootstrap: [IonicApp],
     entryComponents: [
         MyApp,
-        FacilityPage
+
     ],
     providers: [
         {provide: ErrorHandler, useClass: IonicErrorHandler},

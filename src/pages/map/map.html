@@ -37,7 +37,7 @@
           Contact No.
         </ion-list-header>
         <div><button *ngFor="let info_list of site_contact_info" 
-              (click)="go(info_list.link, info_list.facility_type)" class="info-style">{{info_list.info}}</button></div>
+              class="info-style">{{info_list.info}}</button></div>
         <ion-list-header>
           Entrance Fee
         </ion-list-header>
@@ -50,7 +50,7 @@
           Hall
         </ion-list-header>
         <div><button *ngFor="let info_list of basement_hall_info" 
-              (click)="go(info_list.link, info_list.exhibit_id)" class="info-style">{{info_list.info}}</button></div>
+              class="info-style">{{info_list.info}}</button></div>
         <ion-list-header>
           Others
         </ion-list-header>
@@ -63,7 +63,7 @@
           Hall
         </ion-list-header>
         <div><button *ngFor="let info_list of ground_hall_info" 
-              (click)="go(info_list.link, info_list.exhibit_id)" class="info-style">{{info_list.info}}</button></div>
+              class="info-style">{{info_list.info}}</button></div>
         <ion-list-header>
           Facilities
         </ion-list-header>

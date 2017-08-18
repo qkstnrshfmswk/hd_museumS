@@ -23,10 +23,10 @@ export class HomePage {
                         {"icon_img":"assets\\img\\Exhibition-02.png"},
                         {"icon_img":"assets\\img\\Map-02.png"},
                         {"icon_img":"assets\\img\\Facilities-02.png"}];
-    main_img;
+    main_img:any;
     
     constructor(public navCtrl: NavController, public service: Service, public http:Http) {
-        this.http.get('http://ec2-34-224-40-186.compute-1.amazonaws.com:3000/main')
+        this.http.get('http://ec2-54-169-228-245.ap-southeast-1.compute.amazonaws.com:3000/main')
         .subscribe(
         data =>
         {
@@ -38,6 +38,7 @@ export class HomePage {
         {
           console.log("error");
         });
+        
 
 
         // this.cartItems = JSON.parse(localStorage.getItem('cartItem'));

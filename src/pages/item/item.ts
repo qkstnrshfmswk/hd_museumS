@@ -32,7 +32,7 @@ export class ItemPage {
     this.sectionId = navParams.get("sectionId");
     this.itemId = navParams.get("itemId");
     console.log("item id " + this.itemId);
-    this.http.get('http://ec2-34-224-40-186.compute-1.amazonaws.com:3000/item/details/'+this.itemId)
+    this.http.get('http://ec2-54-169-228-245.ap-southeast-1.compute.amazonaws.com:3000/item/details/'+this.itemId)
       .subscribe(
         data=>
         {
@@ -51,7 +51,7 @@ export class ItemPage {
           console.log("err");            
         });
    
-    this.http.get('http://ec2-34-224-40-186.compute-1.amazonaws.com:3000/item/list/' + this.sectionId)
+    this.http.get('http://ec2-54-169-228-245.ap-southeast-1.compute.amazonaws.com:3000/item/list/' + this.sectionId)
       .subscribe(
         data =>
         {

@@ -24,7 +24,7 @@ export class SectionPage {
     this.section = navParams.get("section");
     this.sectionId = navParams.get("sectionId");
     console.log("section" + this.section);
-    this.http.get('http://ec2-34-224-40-186.compute-1.amazonaws.com:3000/item/list/' + this.sectionId)
+    this.http.get('http://ec2-54-169-228-245.ap-southeast-1.compute.amazonaws.com:3000/item/list/' + this.sectionId)
       .subscribe(
         data =>
         {
@@ -57,18 +57,5 @@ export class SectionPage {
       this.navCtrl.push("SearchPage");
   }
 
-// $('#myimage').on('load',function(){
-//    var img = document.getElementById('myimage'); 
-//    var width = img.clientWidth;
-//    var height = img.clientHeight;
-//    if (width>height){
-//      alert('Width is greater');
-//    }
-//    else{
-//       alert('Height is greater');
-//       //And do rotation if this is the right place
-//    }
-   
-// })
 
 }

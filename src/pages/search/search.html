@@ -25,7 +25,8 @@
     {{item}}
   </ion-item>
   </ng-container>
-  <ion-list-header no-lines *ngIf="item_name.length < 1">
+
+  <!--<ion-list-header no-lines *ngIf="item_name.length < 1">
   Top 5 Most Popular Searched Items
 </ion-list-header>
   <ng-container *ngFor="let item of items; let count=index">
@@ -33,8 +34,9 @@
   *ngIf="count<5 && item_name.length < 1">
     {{item.item_name}}
   </ion-item>
-  </ng-container>
+  </ng-container>-->
 </ion-list>
+
 <div class="button-position">
 <button class="scan-button" ion-button outline color="primary" (click)="scanBarcode()"> Scan QR code </button>
 </div>

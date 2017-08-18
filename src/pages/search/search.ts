@@ -31,7 +31,7 @@ export class SearchPage {
                public navParams: NavParams, 
                public http:Http,
                public viewCtrl:ViewController) {
-  this.http.get('http://ec2-34-224-40-186.compute-1.amazonaws.com:3000/item/')
+  this.http.get('http://ec2-54-169-228-245.ap-southeast-1.compute.amazonaws.com:3000/item/')
         .subscribe(
         data =>
         {
@@ -102,22 +102,22 @@ async scanBarcode(){
 }
 
 
-//   getItemId(name, http:Http)
-//   {
-//  this.http.get('http://ec2-34-224-40-186.compute-1.amazonaws.com:3000/item/search/'+name)
-//         .subscribe(
-//           data=>
-//           {
-//               this.item_info = data.json();
-//               console.log("search data " + this.item_info);
-//               this.item_id = this.item_info[0].item_id;
-//               this.section_id = this.item_info[0].section_id;
-//               console.log("item " + this.item_info + " " + this.section_id);
-//           }
-//         )
-//       console.log("search name "+ name);
-//       console.log("search id "+ this.item_id);
-//   }
+  getItemId(name, http:Http)
+  {
+ this.http.get('http://ec2-54-169-228-245.ap-southeast-1.compute.amazonaws.com:3000/item/search/'+name)
+        .subscribe(
+          data=>
+          {
+              this.item_info = data.json();
+              console.log("search data " + this.item_info);
+              this.item_id = this.item_info[0].item_id;
+              this.section_id = this.item_info[0].section_id;
+              console.log("item " + this.item_info + " " + this.section_id);
+          }
+        )
+      console.log("search name "+ name);
+      console.log("search id "+ this.item_id);
+  }
 
 
 
@@ -129,27 +129,13 @@ async scanBarcode(){
         if(this.item_name_temp[index] == item_name)
           break;
       }
-     //this.getItemId(name, this.http);
-      console.log("parameter " + this.items[index].item_id);
-      console.log("parameter section "+ this.items[index].section_id);
-        this.http.get('http://ec2-34-224-40-186.compute-1.amazonaws.com:3000/item/hit/' + this.items[index].item_id + "/"+this.items[index].item_hit_num)
-        .subscribe(
-        data =>
-        {
-          console.log("hit" + data.json());
-
-        },
-        error =>
-        {
-          console.log("error");
-        });
-
+      
       this.navCtrl.push("ItemPage", {
         itemId : this.items[index].item_id,
         sectionId : this.items[index].section_id
       }).then(() => {
         // first we find the index of the current view controller:
-        const index = this.viewCtrl.index;
+        const index = this.viewCtrl.index;                                                                                                                                                                                                                                                                    
         // then we remove it from the navigation stack
         this.navCtrl.remove(index);
       });

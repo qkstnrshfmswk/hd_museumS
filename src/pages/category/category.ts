@@ -22,7 +22,7 @@ export class CategoryPage {
     constructor(public navCtrl: NavController, public service: Service, public http:Http, public navParams:NavParams) {
         this.exhibition_ID = navParams.get("ID");
         console.log("id"+this.exhibition_ID);
-        this.http.get('http://ec2-34-224-40-186.compute-1.amazonaws.com:3000/exhibit/'+this.exhibition_ID)
+        this.http.get('http://ec2-54-169-228-245.ap-southeast-1.compute.amazonaws.com:3000/exhibitions/'+this.exhibition_ID)
         .subscribe(
         data =>
         {

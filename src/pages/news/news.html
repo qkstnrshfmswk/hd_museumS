@@ -9,13 +9,14 @@
 </ion-header>
 <ion-content>
     <ion-list>
-        <ion-item (click)="gotoCategory(categories.id)" *ngFor="let categories of exhibit_list">
+        <ion-item (click)="gotoCategory(exhibitions.exhibit_id)" *ngFor="let exhibitions of exhibit_list">
             <ion-thumbnail item-left>
-                <img class="thumbnail-img" src="{{categories.exhibit_img}}">
+                <img class="thumbnail-img" src="{{exhibitions.exhibit_img}}">
             </ion-thumbnail>
             <div class ="list-content">
-            <p class ="h2">{{categories.exhibit_loc}} <br> </p>
-            <p class="exhibition-name" *ngFor="let name of categories.exhibit_name">{{name.line}} <br> </p>
+            <p class ="h2">{{exhibitions.exhibit_loc}} <br> </p>
+            <p class="exhibition-name"> Hall of <br> </p>            
+            <p class="exhibition-name">{{exhibitions.exhibit_name}} <br> </p>
             </div>
         </ion-item>
     </ion-list>

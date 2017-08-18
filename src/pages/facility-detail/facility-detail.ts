@@ -14,7 +14,7 @@ import { Http } from '@angular/http';
   templateUrl: 'facility-detail.html',
 })
 export class FacilityDetailPage {
-  facilityType:any;
+  facilityName:any;
   facility_info:any;
   facility_img:any;
   img:any;
@@ -22,15 +22,15 @@ export class FacilityDetailPage {
   info_content:Array<any> = [];
   index:number = 0;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http:Http) {
-    this.facilityType = navParams.get("facilityType");
-    console.log(this.facilityType);
-    this.http.get('http://ec2-34-224-40-186.compute-1.amazonaws.com:3000/facility/'+this.facilityType)
+    this.facilityName = navParams.get("facilityName");
+    console.log(this.facilityName);
+    this.http.get('http://ec2-54-169-228-245.ap-southeast-1.compute.amazonaws.com:3000/facility/'+this.facilityName)
     .subscribe(
       data=>
       {
         this.facility_info = data.json();
         this.facility_img = this.facility_info[this.index++].img;
-        if(this.facilityType == "Souvenir Shop")
+        if(this.facilityName == "Souvenir Shop")
         {
           for(  ; this.index < this.facility_info.length ; this.index++)
           {

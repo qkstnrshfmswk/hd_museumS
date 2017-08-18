@@ -29,7 +29,7 @@ export class AboutUsPage {
               public emailComposer:EmailComposer,
               public http:Http)
 {
-    this.http.get('http://ec2-34-224-40-186.compute-1.amazonaws.com:3000/museum_info/')
+    this.http.get('http://ec2-54-169-228-245.ap-southeast-1.compute.amazonaws.com:3000/museum/')
         .subscribe(
         data =>
         {

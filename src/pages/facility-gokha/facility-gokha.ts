@@ -14,7 +14,7 @@ import { Http } from '@angular/http';
   templateUrl: 'facility-gokha.html',
 })
 export class FacilityGokhaPage {
-  facilityType:any;
+  facilityName:any;
   gokha:any;
   gokha_img:any;
   gokha_info:Array<any> = [];
@@ -22,9 +22,9 @@ export class FacilityGokhaPage {
   capability:any;
   index:number = 0;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http:Http) {
-    this.facilityType = navParams.get("facilityType");
-    console.log(this.facilityType);
-    this.http.get('http://ec2-34-224-40-186.compute-1.amazonaws.com:3000/facility/'+this.facilityType)
+    this.facilityName = navParams.get("facilityName");
+    console.log(this.facilityName);
+    this.http.get('http://ec2-54-169-228-245.ap-southeast-1.compute.amazonaws.com:3000/facility/'+this.facilityName)
     .subscribe(
       data=>
       {
