@@ -10,7 +10,7 @@ import {TranslaterModule} from '../../app/translate.module';
     imports: [
         IonicPageModule.forChild(AboutUsPage),
         TranslaterModule
-
+        
     ],
     exports: [
         AboutUsPage
